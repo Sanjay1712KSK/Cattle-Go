@@ -45,7 +45,7 @@ This project focuses on **automatically classifying 49 Indian cattle breeds** us
 ---
 
 ## Requirements
-- Python 3.x  
+- Python 3.13  
 - TensorFlow 2.20+  
 - Keras  
 - NumPy  
@@ -59,3 +59,5 @@ This project focuses on **automatically classifying 49 Indian cattle breeds** us
 3. **Train CNN** with early stopping:  
    ```bash
    python train_cnn.py
+
+<!UNDER CONSTRUCTION!>
