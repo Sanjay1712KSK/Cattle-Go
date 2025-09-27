@@ -53,7 +53,8 @@ This project focuses on **automatically classifying 49 Indian cattle breeds** us
 
 ---
 ## <!UNDER CONSTRUCTION!>
-
+- Everything you see beyond this point is currently under developement... Come Back Soon!!!!!
+---
 ## Usage
 1. **Prepare dataset** in `train/`, `val/`, `test/` folders per breed.  
 2. **Run preprocessing** (resize, normalization, augmentation).  
