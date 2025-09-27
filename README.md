@@ -51,10 +51,13 @@ This project focuses on **automatically classifying 49 Indian cattle breeds** us
 - NumPy  
 - OpenCV (for real-time detection)  
 
----
-## <!UNDER CONSTRUCTION!>
-- Everything you see beyond this point is currently under developement... Come Back Soon!!!!!
----
+## 🚧 Under Construction
+Everything beyond this point is currently under development. Check back soon for:
+- Training script
+- Real-time detection script
+- Docker integration
+- API & database support
+
 ## Usage
 1. **Prepare dataset** in `train/`, `val/`, `test/` folders per breed.  
 2. **Run preprocessing** (resize, normalization, augmentation).  
