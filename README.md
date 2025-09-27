@@ -59,5 +59,5 @@ This project focuses on **automatically classifying 49 Indian cattle breeds** us
 3. **Train CNN** with early stopping:  
    ```bash
    python <comingsoon.py>
-
+   ```
 ## <!UNDER CONSTRUCTION!>
