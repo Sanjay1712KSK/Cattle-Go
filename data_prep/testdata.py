@@ -1,8 +1,8 @@
 import os
 from PIL import Image
 import numpy as np
-dataset_path = r"C:\Users\sanja_szc7g1i\OneDrive\Desktop\Datasets\Indian_bovine_breeds\Indian_bovine_breeds\dataset"
-output_path = r"C:\Users\sanja_szc7g1i\OneDrive\Desktop\Datasets\Indian_bovine_breeds\Indian_bovine_breeds\dataset_preprocessed"
+dataset_path = r"C:\Users\sanja_szc7g1i\OneDrive\Desktop\Datasets\Indian_bovine_breeds\Indian_bovine_breeds\dataset_preprocessed"
+output_path = r"C:\Users\sanja_szc7g1i\OneDrive\Desktop\Datasets\Indian_bovine_breeds\Indian_bovine_breeds"
 target_size = (224, 224)  # Resize to 224x224
 for split in ["train", "val", "test"]:
     split_input_path = os.path.join(dataset_path, split)
