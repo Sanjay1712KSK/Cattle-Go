@@ -17,13 +17,21 @@ A Retrieval-Augmented Generation (RAG) system for querying information about cat
 # Project Structure
 
 ## Cattle-and-Buffalo-RAG-LLM/
+
 │
+
 ├─ data/books/ # Markdown files containing breed information
+
 ├─ chroma_db/ # Persisted vector database (auto-generated)
+
 ├─ create_database.py # Script to load documents and create vector DB
+
 ├─ query_data.py # Script to query the database using LLM
+
 ├─ chat_api.py # FastAPI app to expose a REST endpoint
+
 ├─ requirements.txt # Python dependencies
+
 └─ README.md
 
 # Usage
