@@ -135,6 +135,8 @@ You can try the CattleGo app on your Android device using our **pre-release APK*
 - TensorFlow
 - Firebase account
 - ngrok account
+- CUDA Toolkit 12.1 with cuDNN 8.9.2
+- Ubuntu 22.04 Jammy Jellyfish
 
 ### Installation Steps
 1. Clone the repository
