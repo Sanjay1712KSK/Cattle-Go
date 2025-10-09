@@ -72,10 +72,47 @@ CattleGo is a smart livestock management app that helps farmers and researchers 
   - Large gap between training and validation accuracy
   - Validation loss stagnates while training loss decreases
 
-### Training Evolution
-1. **Stage 1 (ft1 → ft2)**: Initial overfitting issues
-2. **Stage 2 (ft2 → ft3)**: Successfully addressed overfitting
-3. **Stage 3 (ft3 → ft4)**: Peak performance with 90% accuracy
+📈 Training Evolution
+Stage 1: Initial Fine-tuning (Finetune1 → Finetune2)
+https://After_finetune1_and_before_finetune2.png
+
+Accuracy: Training accuracy reaches ~0.7, but validation plateaus at ~0.5-0.55
+
+Loss: Validation loss stagnates and shows early signs of overfitting
+
+Analysis: Model begins learning but struggles with generalization
+
+Stage 2: Improved Generalization (Finetune2 → Finetune3)
+https://After_finetune2_and_before_finetune3.png
+
+Accuracy: Significant improvement - both training and validation reach ~0.75-0.8
+
+Loss: Validation loss now decreases steadily alongside training loss
+
+Analysis: Overfitting addressed, model shows much better generalization
+
+Stage 3: Peak Performance (Finetune3 → Finetune4)
+https://After_finetune3_and_before_finetune4.png
+
+Accuracy: Ideal performance - both curves converge at ~0.9 accuracy
+
+Loss: Perfect synchronization between training and validation loss
+
+Analysis: Model achieves excellent generalization with minimal overfitting
+
+Stage 4: Final Optimization (Finetune4 → Finetune5)
+https://After_finetune4_and_before_finetune5.png
+
+Status: Final optimization stage (graphs in progress)
+
+Expected: Further refinement of model performance
+
+Final Evaluation
+https://mobilenet_finaltune4_confusionmatrix.png
+
+Purpose: Final model evaluation across all breed classes
+
+Usage: Visualizes classification performance and identifies any breed confusion patterns
 
 ## 🔍 Future Enhancements
 
