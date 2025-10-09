@@ -72,47 +72,117 @@ CattleGo is a smart livestock management app that helps farmers and researchers 
   - Large gap between training and validation accuracy
   - Validation loss stagnates while training loss decreases
 
-📈 Training Evolution
-Stage 1: Initial Fine-tuning (Finetune1 → Finetune2)
-[https://After_finetune1_and_before_finetune2.png](https://github.com/Sanjay1712KSK/Cattle-Breed-Detection/blob/main/DL/Fine_Tune/Mobile_Net/After_finetune1_and_before_finetune2.png)
+## 📈 Training Evolution
 
-Accuracy: Training accuracy reaches ~0.7, but validation plateaus at ~0.5-0.55
+### Stage 1: Initial Fine-tuning (Finetune1 → Finetune2)
+```
+# Model Accuracy
+- Train Accuracy: Rapid increase to ~0.7
+- Validation Accuracy: Plateaus at ~0.5-0.55
 
-Loss: Validation loss stagnates and shows early signs of overfitting
+Accuracy
+0.7 |
+0.6 |   ● (Train)
+0.5 |   ● (Val)
+0.4 |
+0.3 |
+0  2  4  6  8  10 12 14 16 Epoch
 
-Analysis: Model begins learning but struggles with generalization
+# Model Loss
+- Train Loss: Decreases steadily
+- Validation Loss: Stagnates and shows overfitting
 
-Stage 2: Improved Generalization (Finetune2 → Finetune3)
-https://After_finetune2_and_before_finetune3.png
+Loss
+2.5 |
+2.0 |   ● (Val)
+1.5 |   ● (Train)
+1.0 |
+0  2  4  6  8  10 12 14 16 Epoch
+```
+**Analysis**: Model begins learning but struggles with generalization, showing clear overfitting patterns.
 
-Accuracy: Significant improvement - both training and validation reach ~0.75-0.8
+### Stage 2: Improved Generalization (Finetune2 → Finetune3)
+```
+# Model Accuracy
+- Train Accuracy: ~0.8
+- Validation Accuracy: ~0.75-0.8 (closely follows training)
 
-Loss: Validation loss now decreases steadily alongside training loss
+Accuracy
+0.8 |   ● (Train)
+0.7 |   ● (Val)
+0.6 |
+0.5 |
+0.4 |
+0.3 |
+0    5    10   15   20   25 Epoch
 
-Analysis: Overfitting addressed, model shows much better generalization
+# Model Loss
+- Both losses decrease steadily together
 
-Stage 3: Peak Performance (Finetune3 → Finetune4)
-https://After_finetune3_and_before_finetune4.png
+Loss
+2.5 |
+2.0 |
+1.5 |   ● (Train) ● (Val)
+1.0 |
+0    5    10   15   20   25 Epoch
+```
+**Analysis**: Significant improvement - overfitting addressed, model shows much better generalization.
 
-Accuracy: Ideal performance - both curves converge at ~0.9 accuracy
+### Stage 3: Peak Performance (Finetune3 → Finetune4)
+```
+# Model Accuracy
+- Both curves converge at ~0.9 accuracy
 
-Loss: Perfect synchronization between training and validation loss
+Accuracy
+0.9 |   ●●● (Train & Val converge)
+0.8 |   ●
+0.7 |   ●
+0.6 |   ●
+0.5 |   ●
+0.4 |   ●
+0.3 |   ●
+0.2 |   ●
+0    5    10   15   20   25   30 Epoch
 
-Analysis: Model achieves excellent generalization with minimal overfitting
+# Model Loss
+- Perfect synchronization between training and validation
 
-Stage 4: Final Optimization (Finetune4 → Finetune5)
-https://After_finetune4_and_before_finetune5.png
+Loss
+3.5 |
+3.0 |
+2.5 |
+2.0 |
+1.5 |   ●●● (Train & Val sync)
+1.0 |
+0    5    10   15   20   25   30 Epoch
+```
+**Analysis**: **Ideal performance** - Model achieves excellent generalization with minimal overfitting.
 
-Status: Final optimization stage (graphs in progress)
+### Stage 4: Final Optimization (Finetune4 → Finetune5)
+```
+# Model Accuracy        # Model Loss
+- Train Accuracy        - Train Loss
+- Validation Accuracy   - Validation Accuracy
 
-Expected: Further refinement of model performance
+## Accuracy             ## Model Loss
+- Epoch                 - Epoch
+```
+**Status**: Final optimization stage (graphs in progress)
+**Expected**: Further refinement of model performance
 
-Final Evaluation
-https://mobilenet_finaltune4_confusionmatrix.png
+### Final Confusion Matrix
+```
+# Confusion Matrix
 
-Purpose: Final model evaluation across all breed classes
-
-Usage: Visualizes classification performance and identifies any breed confusion patterns
+- 40 |
+- 30 |
+- 20 |
+- 10 |
+-    +----------------
+     Time    Predicted
+```
+**Purpose**: Final model evaluation across all breed classes
+**Usage**: Visualizes classification performance and identifies breed confusion patterns
 
 ## 🔍 Future Enhancements
 
@@ -159,3 +229,7 @@ We welcome contributions to improve CattleGo! Areas of interest:
 - UI/UX enhancements
 - Documentation updates
 - Bug fixes and performance optimizations
+
+---
+
+*Note: This documentation reflects the model training progress up to Finetune4, with Finetune5 representing ongoing optimization efforts.*
