@@ -168,3 +168,5 @@ We welcome contributions to improve CattleGo! Areas of interest:
 ---
 
 *Note: This documentation reflects the model training progress up to Finetune4, with Finetune5 representing ongoing optimization efforts.*
+
+*Disclaimer: Developed by Team VeriSimilar. All Rights Reserved 2025*
