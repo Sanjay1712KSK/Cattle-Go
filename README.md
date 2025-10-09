@@ -95,7 +95,7 @@ The project leverages **MobileNetV2**, **FastAPI**, **Flutter**, and **Firebase*
 ---
 
 ## 🧮 Confusion Matrix
-![Confusion Matrix](DL/Graphs/our model.png)
+![Confusion Matrix](DL/Graphs/our_model.png)
 
 **Purpose:** Displays model performance across all breed classes, highlighting correctly and incorrectly predicted breeds.
 
