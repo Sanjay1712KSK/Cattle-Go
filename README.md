@@ -108,6 +108,15 @@ Below are key screens of the CattleGo app demonstrating multilingual support, br
 ### 🔒 Privacy Policy
 ![Privacy Policy Page](DL/App%20screenshots/Privacy_Policy_Page.jpg)
 
+## 📲 Try the App
+
+You can try the CattleGo app on your Android device using our **pre-release APK**:
+
+[Download CattleGo APK]([https://release-assets.githubusercontent.com/github-production-release-asset/1064854025/2df32d5a-f3f5-4dc8-973d-f776ae00db26?sp=r&sv=2018-11-09&sr=b&spr=https&se=2025-10-09T07%3A31%3A32Z&rscd=attachment%3B+filename%3DCattleGo-APK.Release.--.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2025-10-09T06%3A31%3A22Z&ske=2025-10-09T07%3A31%3A32Z&sks=b&skv=2018-11-09&sig=oR2cvfDxr%2FVQ%2F%2F1kPpANIZfbTnB2dCrCWYFfpSTvMBM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc1OTk5MzU4MiwibmJmIjoxNzU5OTkxNzgyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.6z8kI3xgPNOxKexzDrHdgLnHM2j514Pxn39ZrUagdJ8&response-content-disposition=attachment%3B%20filename%3DCattleGo-APK.Release.--.apk&response-content-type=application%2Fvnd.android.package-archive](https://release-assets.githubusercontent.com/github-production-release-asset/1064854025/2df32d5a-f3f5-4dc8-973d-f776ae00db26?sp=r&sv=2018-11-09&sr=b&spr=https&se=2025-10-09T07%3A31%3A32Z&rscd=attachment%3B+filename%3DCattleGo-APK.Release.--.apk&rsct=application%2Fvnd.android.package-archive&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2025-10-09T06%3A31%3A22Z&ske=2025-10-09T07%3A31%3A32Z&sks=b&skv=2018-11-09&sig=oR2cvfDxr%2FVQ%2F%2F1kPpANIZfbTnB2dCrCWYFfpSTvMBM%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc1OTk5MzU4MiwibmJmIjoxNzU5OTkxNzgyLCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.6z8kI3xgPNOxKexzDrHdgLnHM2j514Pxn39ZrUagdJ8&response-content-disposition=attachment%3B%20filename%3DCattleGo-APK.Release.--.apk&response-content-type=application%2Fvnd.android.package-archive))
+
+> ⚠️ Make sure to enable “Install from unknown sources” on your Android device to install the APK.
+
+
 ## 🔍 Future Enhancements
 
 - Improve model accuracy (>80%) with more balanced datasets
