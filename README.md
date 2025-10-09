@@ -74,7 +74,7 @@ CattleGo is a smart livestock management app that helps farmers and researchers 
 
 📈 Training Evolution
 Stage 1: Initial Fine-tuning (Finetune1 → Finetune2)
-https://After_finetune1_and_before_finetune2.png
+[https://After_finetune1_and_before_finetune2.png](https://github.com/Sanjay1712KSK/Cattle-Breed-Detection/blob/main/DL/Fine_Tune/Mobile_Net/After_finetune1_and_before_finetune2.png)
 
 Accuracy: Training accuracy reaches ~0.7, but validation plateaus at ~0.5-0.55
 
