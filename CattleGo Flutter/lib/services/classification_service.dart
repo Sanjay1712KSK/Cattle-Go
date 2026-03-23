@@ -1,20 +1,21 @@
 // lib/services/classification_service.dart
 
 import 'dart:io';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'dart:async'; // TimeoutException
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+
+import '../app_endpoints.dart';
 
 class ClassificationService {
-  // URL of your FastAPI endpoint
-  static const String _uploadUrl =
-      'https://superstrenuous-marcelina-overeffusively.ngrok-free.dev/predict';
+  static final Uri _uploadUri = AppEndpoints.hfSpaceUri('/predict');
 
   /// Uploads an image and returns the classification results
   /// formatted like Python's `generate_text_response`
   Future<Map<String, dynamic>> classifyImage(File imageFile) async {
-    final uri = Uri.parse(_uploadUrl);
-    var request = http.MultipartRequest('POST', uri);
+    final request = http.MultipartRequest('POST', _uploadUri);
+    request.headers.addAll(AppEndpoints.hfSpaceHeaders());
 
     request.files.add(
       await http.MultipartFile.fromPath(

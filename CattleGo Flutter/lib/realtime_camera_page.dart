@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image/image.dart' as img;
 
+import 'app_endpoints.dart';
+
 class RealtimeCameraPage extends StatefulWidget {
   const RealtimeCameraPage({super.key});
 
@@ -20,8 +22,7 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
   // Store full prediction data
   Map<String, dynamic>? _predictionData;
 
-  final String _realtimeApiUrl =
-      'https://superstrenuous-marcelina-overeffusively.ngrok-free.dev/predict-frame';
+  final Uri _realtimeApiUri = AppEndpoints.hfSpaceUri('/predict-frame');
 
   @override
   void initState() {
@@ -98,8 +99,9 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
 
       final request = http.MultipartRequest(
         'POST',
-        Uri.parse(_realtimeApiUrl),
+        _realtimeApiUri,
       );
+      request.headers.addAll(AppEndpoints.hfSpaceHeaders());
 
       request.files.add(http.MultipartFile.fromBytes(
         'file',
