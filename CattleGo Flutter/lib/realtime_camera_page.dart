@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -18,6 +19,7 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
   List<CameraDescription>? _cameras;
   bool _isCameraInitialized = false;
   bool _isProcessing = false;
+  DateTime? _lastProcessedAt;
 
   // Store full prediction data
   Map<String, dynamic>? _predictionData;
@@ -33,8 +35,13 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
   Future<void> _initializeCamera() async {
     _cameras = await availableCameras();
     if (_cameras != null && _cameras!.isNotEmpty) {
+      final CameraDescription selectedCamera = _cameras!.firstWhere(
+        (camera) => camera.lensDirection == CameraLensDirection.back,
+        orElse: () => _cameras!.first,
+      );
+
       _controller = CameraController(
-        _cameras![0],
+        selectedCamera,
         ResolutionPreset.medium,
         enableAudio: false,
       );
@@ -46,8 +53,13 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
       });
 
       _controller!.startImageStream((CameraImage image) {
-        if (!_isProcessing) {
+        final DateTime now = DateTime.now();
+        final bool shouldThrottle = _lastProcessedAt != null &&
+            now.difference(_lastProcessedAt!) < const Duration(milliseconds: 900);
+
+        if (!_isProcessing && !shouldThrottle) {
           _isProcessing = true;
+          _lastProcessedAt = now;
           _processCameraImage(image);
         }
       });
@@ -89,10 +101,49 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
     return imageConverted;
   }
 
+  img.Image _prepareImageForUpload(CameraImage image) {
+    img.Image processed = _convertCameraImage(image);
+
+    final int rotation = _controller?.description.sensorOrientation ?? 0;
+    if (rotation == 90 || rotation == 180 || rotation == 270) {
+      processed = img.copyRotate(processed, angle: rotation);
+    }
+
+    return img.copyResizeCropSquare(processed, size: 256);
+  }
+
+  Map<String, dynamic> _normalizePredictionData(dynamic decodedBody) {
+    if (decodedBody is! Map<String, dynamic>) {
+      return {'message': 'Unexpected response format'};
+    }
+
+    final String? predictedClass =
+        decodedBody['class']?.toString() ?? decodedBody['breed']?.toString();
+    final num? rawConfidence = decodedBody['confidence'] is num
+        ? decodedBody['confidence'] as num
+        : num.tryParse(decodedBody['confidence']?.toString() ?? '');
+    final double? confidence = rawConfidence?.toDouble();
+
+    String message = decodedBody['message']?.toString() ?? '';
+    if (message.isEmpty && predictedClass != null && predictedClass.isNotEmpty) {
+      message = predictedClass;
+      if (confidence != null) {
+        message =
+            '$message (${(confidence * 100).clamp(0, 100).toStringAsFixed(1)}%)';
+      }
+    }
+
+    return {
+      ...decodedBody,
+      'class': predictedClass,
+      'confidence': confidence,
+      'message': message.isEmpty ? 'Point at cattle...' : message,
+    };
+  }
+
   Future<void> _processCameraImage(CameraImage image) async {
     try {
-      final img.Image convertedImage = _convertCameraImage(image);
-      final img.Image resized = img.copyResize(convertedImage, width: 256, height: 256);
+      final img.Image resized = _prepareImageForUpload(image);
 
       // Compress for upload
       final List<int> jpegBytes = img.encodeJpg(resized, quality: 75);
@@ -113,7 +164,7 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
       final responseBody = await response.stream.bytesToString();
 
       if (response.statusCode == 200) {
-        final data = jsonDecode(responseBody);
+        final data = _normalizePredictionData(jsonDecode(responseBody));
         if (mounted) {
           setState(() {
             _predictionData = data;
@@ -155,7 +206,11 @@ class _RealtimeCameraPageState extends State<RealtimeCameraPage> {
     // Optional: compute confidence as percentage for a progress bar
     double confidencePercent = 0.0;
     if (_predictionData != null && _predictionData!['confidence'] != null) {
-      confidencePercent = (_predictionData!['confidence'] as double).clamp(0.0, 1.0);
+      final dynamic rawConfidence = _predictionData!['confidence'];
+      final double? parsedConfidence = rawConfidence is num
+          ? rawConfidence.toDouble()
+          : double.tryParse(rawConfidence.toString());
+      confidencePercent = (parsedConfidence ?? 0.0).clamp(0.0, 1.0);
     }
 
     return Scaffold(
