@@ -121,8 +121,8 @@ You can try the CattleGo app on your Android device using our **Release APK**:
 
 The cattle breed detection backend is publicly deployed on Hugging Face Spaces.
 
-- **Space URL**: `https://sanjay11kumar17s-cattle-go-model.hf.space`
-- **Space Repo**: `SANJAY11KUMAR17S/Cattle_Go_Model`
+- [**Space URL**:](https://sanjay11kumar17s-cattle-go-model.hf.space)
+- [**Space Repo**:](SANJAY11KUMAR17S/Cattle_Go_Model)
 
 Users can access the deployed API using their own Hugging Face access tokens.
 
