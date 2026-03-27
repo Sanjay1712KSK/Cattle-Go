@@ -1,6 +1,6 @@
 # CattleGo - Intelligent Livestock Breed Identification System
 
-## Overview
+## Overview - of Cattle Breed
 
 CattleGo is a smart livestock management app that helps farmers and researchers identify Indian cattle breeds using AI-based image recognition. It combines machine learning, real-time detection, multilingual support, and a RAG-based chatbot to make livestock management more accessible and efficient.
 
